@@ -4,15 +4,13 @@ import re
 import mistune
 root = os.path.dirname(__file__)
 
-known = []
-m = mistune.Markdown()
-
 
 def render(folder, name):
     filepath = os.path.join(folder, name + '.text')
     with open(filepath) as f:
         content = f.read()
 
+    m = mistune.Markdown()
     html = m.parse(content)
 
     filepath = os.path.join(folder, name + '.html')
